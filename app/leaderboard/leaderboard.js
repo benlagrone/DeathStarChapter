@@ -1,23 +1,20 @@
-var news = {};
-news.request = function(){
+var leaderboard = {};
 
-    var apiKey = '24e09a475c690683d9d218c1260a6ca2:5:73536423';
-    var section = 'world';
-    var responseFormat = 'json';
-    var url = 'http://api.nytimes.com/svc/topstories/v1/'+ section + '.' + responseFormat + '?api-key=' + apiKey;
-    url2 = 'http://api.feedzilla.com/v1/categories.json';
-    //refactor this to send another callback to the parseAjax
-    services.getPage(url,'test',news.parseAjax,id);
-};
-
-news.parseAjax = function(xhr,id){
+leaderboard.parseAjax = function (xhr,id){
     var data = JSON.parse(xhr.responseText);
-    var newsHtml = '';
-    for(i=0;i<4;i++){
-        newsHtml+='<li class="ellipsis"><a href="'+data.results[i].url+'"><h4 class="dark"><i class="fa fa-newspaper-o"></i>&nbsp;'+data.results[i].title+'</h4>'
-        +'<p>'+data.results[i].abstract+'</p></a></li>';
+    var leaderboardLength = window.location.hash.split('#')[1]==='home'?4:data.objectgroups.leaderboard.objects.length;
+    var leaderboardHTML = '';
+    for(i=0;i<leaderboardLength;i++){
+        leaderboardHTML+='<li><span><i class="fa fa-fort-awesome"></i>&nbsp;'+data.objectgroups.leaderboard.objects[i].person+'</span>:&nbsp;' +'<span>' +data.objectgroups.leaderboard.objects[i].score+'</span></li>';
     }
-    document.getElementById('credits-list').innerHTML=newsHtml;
+
+    document.getElementById('leaderboard-list').innerHTML=leaderboardHTML;
+    document.getElementById('curtain').className = 'fade';
 };
 
-news.request();
+if(window.location.hash.split('#')[1]==='home'){
+    services.getPage("./app/leaderboard/leaderboard.json",'leaderboard',leaderboard.parseAjax,id);
+}else{
+    services.getPage(pageRoute.data,'leaderboard',leaderboard.parseAjax,id);
+}
+

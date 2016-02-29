@@ -2,9 +2,13 @@
   "objectgroups": {
     "messages":{
       "objects":[
-        {"text":"3,2,1...   SCROLL!","position":100,"time":3000},
-        {"text":"Keep Scrolling...","position":50,"time":3000},
-        {"text":"finished!! Awesome!","position":5,"time":6000}
+        {"text":"Many Bothams died to get these plans!","position":100,"time":4000},
+        {"text":"Be Carefull, there's some fighting ahead!","position":75,"time":5000},
+        {"text":"That's No Moon!","position":30,"time":6000},
+        {"text":"It's a trap!","position":25,"time":6000},
+        {"text":"Almost there!","position":20,"time":6000},
+        {"text":"Almost there!","position":10,"time":6000},
+        {"text":"It's as easy as shooting Womp Rats in Beggars canyon","position":1,"time":6000}
       ]
     },
     "stars": {
@@ -148,22 +152,66 @@
         {"type":"star","idclass":"fa fa-star","sizeclass":"fa-1x","colorclass":"yellow"}
       ]
     },
-    "moon":{
+    "satellite":{
       "objects":[
-        {"type":"moon","idclass":"fa fa-moon-o","sizeclass":"fa-5x","colorclass":"yellow"}
+        {"type":"satellite","idclass":"satellite","sizeclass":"","colorclass":"silver"}
       ]
     },
     "objects":{
-      "sun":{
+      "death_star":{
         "objects":[
-          {"type":"sun","idclass":"fa fa-smile-o","sizeclass":"fa-1x","colorclass":"green"},
-          {"type":"sun","idclass":"fa fa-circle","sizeclass":"fa-1x","colorclass":"yellow"},
-          {"type":"sun","idclass":"fa fa-sun-o","sizeclass":"fa-1x","colorclass":"yellow"}
+          {"type":"death_star","idclass":"death_star","sizeclass":"","colorclass":"silver"},
+          {"type":"cloud","idclass":"fa fa-bullseye","sizeclass":"deathStarAdd fa-5x","colorclass":"red"},
+          {"type":"cloud","idclass":"fa fa-sun-o","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"},
+          {"type":"cloud","idclass":"fa fa-crosshairs","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"}
         ]
       },
-      "earth":{
+      "starships1":{
         "objects":[
-          {"type":"earth","idclass":"fa fa-globe","sizeclass":"","colorclass":"blue land air"}
+          {"type":"rocket2","idclass":"rocket","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"falcon","idclass":"falcon","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"x-wing","idclass":"x-wing","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite1","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite2","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite3","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"}
+        ]
+      },
+      "starships2":{
+        "objects":[
+          {"type":"rocket2","idclass":"rocket","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"x-wing","idclass":"x-wing","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite1","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite2","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite3","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"}
+        ]
+      },
+      "starships3":{
+        "objects":[
+          {"type":"rocket2","idclass":"rocket","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"x-wing","idclass":"x-wing","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite1","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite2","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"satellite3","idclass":"satellite","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"},
+          {"type":"tie-fighter","idclass":"tie-fighter","sizeclass":"smallship","colorclass":"silver"}
+        ]
+      },
+      "saturn":{
+        "objects":[
+          {"type":"saturn","idclass":"saturn","sizeclass":"","colorclass":"purple"}
         ]
       },
       "rocket":{
@@ -174,90 +222,6 @@
           {"type":"rocket","idclass":"fa fa-comment","sizeclass":"fa-5x","colorclass":"white"}
         ]
       }
-    },
-    "terra":{
-      "left": {
-        "objects": [
-          {"type": "tree", "idclass": "fa fa-tree", "sizeclass": "", "colorclass": "green"},
-          {"type": "tree", "idclass": "fa fa-tree", "sizeclass": "", "colorclass": "green"},
-          {"type": "tree", "idclass": "fa fa-tree", "sizeclass": "", "colorclass": "green"},
-          {"type": "tree", "idclass": "fa fa-tree", "sizeclass": "", "colorclass": "green"},
-          {"type": "tree", "idclass": "fa fa-tree", "sizeclass": "", "colorclass": "green"}
-        ]
-      },
-      "right": {
-        "objects": [
-          {"type": "tree", "idclass": "fa fa-truck", "sizeclass": "", "colorclass": "silver"},
-          {"type": "tree", "idclass": "fa fa-building", "sizeclass": "small", "colorclass": "grey-1"},
-          {"type": "tree", "idclass": "fa fa-building", "sizeclass": "small", "colorclass": "grey-2"},
-          {"type": "tree", "idclass": "fa fa-building", "sizeclass": "large", "colorclass": "grey-2"},
-          {"type": "tree", "idclass": "fa fa-building", "sizeclass": "large", "colorclass": "grey-1"}
-
-        ]
-      }
-    },
-    "clouds": {
-      "p9":{
-        "objects":[
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-2x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-1x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-4x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"}
-        ]
-      },
-      "p10":{
-        "objects":[
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-2x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-1x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-4x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"}
-        ]
-      },
-      "p11":{
-        "objects":[
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-2x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-1x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-4x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"}
-        ]
-      },
-      "p12":{
-        "objects":[
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-2x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-1x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-4x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"}
-        ]
-      },
-      "p13":{
-        "objects":[
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-2x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-1x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-5x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-4x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-cloud","sizeclass":"fa-3x","colorclass":"white"},
-          {"type":"cloud","idclass":"fa fa-twitter","sizeclass":"fa-1x","colorclass":"silver"},
-          {"type":"cloud","idclass":"fa fa-twitter","sizeclass":"fa-1x","colorclass":"yellow"},
-          {"type":"cloud","idclass":"fa fa-twitter","sizeclass":"fa-1x","colorclass":"green"},
-          {"type":"cloud","idclass":"fa fa-twitter","sizeclass":"fa-1x","colorclass":"red"},
-          {"type":"cloud","idclass":"fa fa-plane","sizeclass":"fa-3x","colorclass":"silver"}
-        ]
-      }
-
     }
   }
 }

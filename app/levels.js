@@ -1,12 +1,17 @@
 levels={};
 levels.load = function(levelCallBack){
+
     for (i = 0;i<document.getElementsByClassName("row").length;i++){
         document.getElementsByClassName("row")[i].style.height = window.innerHeight + "px";
     }
     smoothScrollTo(document.body.scrollHeight);
     document.getElementsByTagName("body")[0].setAttribute("onscroll",levelCallBack);
+    var controller = document.getElementById("controls");
+    if(controller){
+        controller.addEventListener("touchstart", levels.click.intervalMove, false);
+        controller.addEventListener("touchend", levels.click.intervalMove, false);
+    }
 };
-
 
 levels.spreadObjects = function(x,vm,hm,va,ha,p,e){
     for (var i=0;i<x.length;i++){
@@ -15,7 +20,6 @@ levels.spreadObjects = function(x,vm,hm,va,ha,p,e){
         x[i].style.left = Math.floor((Math.random()*hm)+ha)+e;
     }
 };
-
 
 levels.moveRocket = function(rocket){
     rocket.getElementsByTagName("span")[0].style.transform = "rotate(" + (355 - (((window.innerHeight*(document.getElementsByClassName("row").length) - document.getElementById("rocket").getBoundingClientRect().bottom)/window.innerHeight))*3) + "deg)";
@@ -33,7 +37,12 @@ levels.moveEarth = function(earth){
     earth.getElementsByTagName("i")[0].style.opacity = 1.3-(window.pageYOffset/(window.innerHeight*(document.getElementsByClassName("row").length)));
 };
 
-
+levels.moveSaturn = function(orb){
+    //orb.style.fontSize=(((window.innerHeight*(document.getElementsByClassName("row").length) - document.getElementById("rocket").getBoundingClientRect().bottom)/window.innerHeight) *100)+"vw";
+    orb.style.left=(((window.innerHeight*(document.getElementsByClassName("row").length) - document.getElementById("rocket").getBoundingClientRect().bottom)/window.innerHeight) + document.getElementsByClassName("row").length*-6)+"px";
+    orb.style.height = (window.innerHeight*(document.getElementsByClassName("row").length)-window.pageYOffset)/window.innerHeight+.5 + '%';
+    orb.style.bottom = (100-(window.innerHeight*(document.getElementsByClassName("row").length)-window.pageYOffset)/window.innerHeight-15) + '%';
+};
 levels.setElementLeftPosition = function(element,increment){
     if(isNaN(parseInt(element.style.left.split("p")[0]))){
         return ((element.getBoundingClientRect().left)+increment)+"px"
@@ -42,7 +51,116 @@ levels.setElementLeftPosition = function(element,increment){
     }
 };
 
+levels.setElementBottomPosition = function(element,increment){
+    if(isNaN(parseInt(element.style.bottom.split("p")[0]))){
+        return ((element.getBoundingClientRect().bottom)+increment)+"px"
+    } else {
+        return ((Math.abs(parseInt(element.style.bottom.split("p")[0]))) + increment)+"px";
+    }
+};
+
+levels.topOfScroll = function(topCallBack){
+    topCallBack();
+    setTimeout(function(){
+        window.location.hash = '#home';
+        return;
+    }, 3000);
+};
+
+levels.bottomOfScroll = function(bottomCallBack){
+    bottomCallBack()
+    document.getElementById('curtain').className = 'fade';
+};
+
+levels.updateOnMove = function(topCallBack,bottomCallBack,messagesObject){
+    levels.moveRocket(document.getElementById("rocket"));
+    var ScrollPosition = Math.round(100*window.pageYOffset/(document.body.scrollHeight-document.documentElement.clientHeight));
+    switch (ScrollPosition){
+        case 0:
+            levels.topOfScroll(topCallBack);
+            break;
+        case 100:
+            levels.bottomOfScroll(bottomCallBack);
+            break;
+        default:
+    }
+    var scrollPosition = Math.round(100 * window.pageYOffset / (document.body.scrollHeight - document.documentElement.clientHeight));
+    for(i=0;i<messagesObject.objects.length;i++){
+        if(messagesObject.objects[i].position===scrollPosition){
+            levels.showMessage(messagesObject.objects[i])
+        }
+    }
+};
+
+levels.showMessage = function(messageObject){
+    document.getElementById('rocket').getElementsByClassName('fa-comment')[0].style.display = "inline";
+    document.getElementById('rocket').getElementsByClassName('fa-comment')[0].innerHTML='<span>'+messageObject.text+'</span>';
+    setTimeout(function(){
+        document.getElementById('rocket').getElementsByClassName('fa-comment')[0].style.display = "none";
+    }, messageObject.time);
+};
+levels.click = {};
+levels.click.checkKey = function(e){
+    e = e || window.event;
+    switch (e.keyCode){
+     case 37:
+     levels.click.controlsAdjust('leftClick');
+     break;
+     case 39:
+     levels.click.controlsAdjust('rightClick');
+     break;
+     }
+};
+levels.click.intervalMove = function() {
+    var eventAction = event;
+    switch (eventAction.type){
+        case 'mousedown':
+            controlsAdjustTimer();
+            break;
+        case 'mouseup':
+            stopAdjustTimer();
+            break;
+        case 'mouseout':
+            stopAdjustTimer();
+            break;
+        case 'touchstart':
+            controlsAdjustTimer();
+            break;
+        case 'touchend':
+            stopAdjustTimer();
+            break;
+    }
+    function controlsAdjustTimer() {
+        theTimer = setInterval(function(){
+            levels.click.controlsAdjust(eventAction.target.id)
+        }, 50);
+        return false;
+    }
+    function stopAdjustTimer() {
+        clearInterval(theTimer);
+        return false;
+    }
+};
+levels.click.controlsAdjust = function(clickTarget){
+    console.log(clickTarget)
+    smoothScrollTo(window.pageYOffset-(window.innerHeight/4));
+    var sprite = document.getElementById("rocket").getElementsByTagName("span")[0];
+    switch (clickTarget){
+        case 'rightClick':
+            sprite.style.left = levels.setElementLeftPosition(sprite,2);
+            break;
+        case 'leftClick':
+            sprite.style.left = levels.setElementLeftPosition(sprite,-2)
+            break;
+    }
+    document.getElementById(clickTarget).classList.add('small');
+    setTimeout(function(){
+        document.getElementById(clickTarget).classList.remove('small')
+    }, 200);
+};
+
 window.smoothScrollTo = (function () {
+    console.log('scroll')
     var timer, start, factor;
 
     return function (target, duration) {
@@ -72,3 +190,5 @@ window.smoothScrollTo = (function () {
         return timer;
     };
 }());
+
+document.onkeydown = levels.click.checkKey;
