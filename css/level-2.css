@@ -36,10 +36,5 @@
     z-index:99;
 }
 #rocketObject #rocket span{z-index:999;}
-#homeObjects .death_star object{
-    width:100px;
-    right:50%
-}
-#homeObjects #cloud{
-    display:none;
-}
+.deathStarAdd{display:none}
+.deathStarAdd.show{display:inline;}

@@ -13,7 +13,7 @@ level1.parseAjaxHome = function (xhr,id){
     if(window.innerHeight>window.innerWidth){
         levels.spreadObjects(document.getElementById("stars").getElementsByTagName("i"),100,window.innerWidth,100,1,"absolute","px");
     }else{
-        levels.spreadObjects(document.getElementById("stars").getElementsByTagName("i"),30,25,20,1,"absolute","%");
+        levels.spreadObjects(document.getElementById("stars").getElementsByTagName("i"),20,25,20,1,"absolute","%");
     }
 };
 

@@ -161,9 +161,9 @@
       "death_star":{
         "objects":[
           {"type":"death_star","idclass":"death_star","sizeclass":"","colorclass":"silver"},
-          {"type":"cloud","idclass":"fa fa-bullseye","sizeclass":"deathStarAdd fa-5x","colorclass":"red"},
-          {"type":"cloud","idclass":"fa fa-sun-o","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"},
-          {"type":"cloud","idclass":"fa fa-crosshairs","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"}
+          {"type":"cloud1","idclass":"fa fa-bullseye","sizeclass":"deathStarAdd fa-5x","colorclass":"red"},
+          {"type":"cloud2","idclass":"fa fa-sun-o","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"},
+          {"type":"cloud3","idclass":"fa fa-crosshairs","sizeclass":"deathStarAdd fa-5x","colorclass":"yellow"}
         ]
       },
       "starships1":{

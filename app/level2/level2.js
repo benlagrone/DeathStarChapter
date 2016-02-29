@@ -54,6 +54,11 @@ level2.getMovingElements = function(callback){
 
             }else if(document.getElementsByClassName("row")[h].getElementsByClassName("deathStarAdd").length>0&&(document.getElementById("rocket").getBoundingClientRect().bottom)/(window.innerHeight*(document.getElementsByClassName("row").length))>=.995){
                 console.log('explode')
+                var deathStarExplodes = document.getElementsByClassName("row")[h].getElementsByClassName("deathStarAdd")
+                for (var i=0;i<deathStarExplodes;i++){
+                        //.classList.add('show')
+                    console.log(deathStarExplodes[i])
+                }
             }
         }
     }
@@ -66,9 +71,6 @@ level2.parseAjaxHome = function (xhr,id) {
         homeObjectsHTMLStart+='<div id="'+level2.data.objectgroups.objects.starships3.objects[key].type+'" class="'+level2.data.objectgroups.objects.starships3.objects[key].idclass+' '+level2.data.objectgroups.objects.starships3.objects[key].sizeclass+' '+level2.data.objectgroups.objects.starships3.objects[key].colorclass+'">';
         homeObjectsHTMLStart+='<object type="image/svg+xml" data="lib/space-icons/'+level2.data.objectgroups.objects.starships3.objects[key].idclass+'.svg" >'+level2.data.objectgroups.objects.starships3.objects[key].type+'</object></div>';
     }
-    //document.getElementById('objects3').innerHTML=objects3HTMLStart;
-
-    var homeObjectsHTMLStart = '';
     for (var key in level2.data.objectgroups.objects.death_star.objects) {
         homeObjectsHTMLStart += '<div id="' + level2.data.objectgroups.objects.death_star.objects[key].type + '" class="' + level2.data.objectgroups.objects.death_star.objects[key].idclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].sizeclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].colorclass + '">';
         if(level2.data.objectgroups.objects.death_star.objects[key].type!='cloud'){
@@ -78,6 +80,11 @@ level2.parseAjaxHome = function (xhr,id) {
     }
     document.getElementById('homeObjects').innerHTML=homeObjectsHTMLStart;
 
+    if(window.innerHeight>window.innerWidth){
+        levels.spreadObjects(document.getElementById("homeObjects").getElementsByClassName("smallship"),120,window.innerWidth,210,30,"absolute","px");
+    }else{
+        levels.spreadObjects(document.getElementById("homeObjects").getElementsByClassName("smallship"),20,20,20,25,"absolute","%");
+    }
 };
 
 level2.parseAjax = function (xhr,id) {

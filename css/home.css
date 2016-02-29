@@ -12,11 +12,13 @@
     }
     .time span:first-of-type{display:block;}
 
-}
-@media (min-width:838px){
-    #travel{
-        position: absolute;
-        width: 25%;
+    footer{
+        height:34px;
+
+    }
+    #leaderboard-list,#credits-list{
+        margin: 0 0 0 15%;
+        padding: 0;
     }
 }
 @media (orientation:landscape){
@@ -40,20 +42,30 @@
     .left{float:left;clear:left;}
     .right{float:right;clear:right}
     .center{text-align:center;}
+    #leaderboard-list,#credits-list{
+        margin: 0 0 0 15%;
+        padding: 0;
+        float:left;
+    }
+    #leaderboard,#credits{height:144px}
+    #homeObjects .death_star {right: 20%;}
 
+    footer{
+        height:34px;
+        clear:both;
+    }
 }
-button{
-    padding: 13px 21px;
-    margin:8% auto;
-    border-radius: 5px;
-    border-color: #357ebd;
-    color: #fff;
-    background-color: #1abc9c;
-    border: none;
-    width:75%;
-    cursor: pointer;
-    font-size:1.1REM;
+#homeObjects .death_star object{
+    width:100px;
+    right:50%
 }
+#homeObjects #cloud{
+    display:none;
+}
+#homeObjects .smallship{
+    width: 5vw;
+}
+
 p {
     width:94%;
     overflow:hidden;
