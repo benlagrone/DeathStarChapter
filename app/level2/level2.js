@@ -52,12 +52,12 @@ level2.getMovingElements = function(callback){
                     }
                 }
 
-            }else if(document.getElementsByClassName("row")[h].getElementsByClassName("deathStarAdd").length>0&&(document.getElementById("rocket").getBoundingClientRect().bottom)/(window.innerHeight*(document.getElementsByClassName("row").length))>=.995){
-                console.log('explode')
+            }else if(document.getElementsByClassName("row")[h].getElementsByClassName("deathStarAdd").length>0&&(document.getElementById("rocket").getBoundingClientRect().bottom)/(window.innerHeight*(document.getElementsByClassName("row").length))>=.999){
+
                 var deathStarExplodes = document.getElementsByClassName("row")[h].getElementsByClassName("deathStarAdd")
-                for (var i=0;i<deathStarExplodes;i++){
-                        //.classList.add('show')
-                    console.log(deathStarExplodes[i])
+                for (var i=0;i<deathStarExplodes.length;i++){
+                    deathStarExplodes[i].classList.add('show')
+
                 }
             }
         }
@@ -133,7 +133,7 @@ level2.parseAjax = function (xhr,id) {
 
     var deathStarObjectHTML = '';
     for (var key in level2.data.objectgroups.objects.death_star.objects) {
-        deathStarObjectHTML += '<div id="' + level2.data.objectgroups.objects.death_star.objects[key].type + '" class="' + level2.data.objectgroups.objects.death_star.objects[key].idclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].sizeclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].colorclass + '">';
+        deathStarObjectHTML += '<div id="' + level2.data.objectgroups.objects.death_star.objects[key].type + key+'" class="' + level2.data.objectgroups.objects.death_star.objects[key].idclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].sizeclass + ' ' + level2.data.objectgroups.objects.death_star.objects[key].colorclass + '">';
         if(level2.data.objectgroups.objects.death_star.objects[key].type!='cloud'){
             deathStarObjectHTML += '<object type="image/svg+xml" data="lib/space-icons/' + level2.data.objectgroups.objects.death_star.objects[key].idclass + '.svg" >' + level2.data.objectgroups.objects.death_star.objects[key].type + '</object>';
         }
